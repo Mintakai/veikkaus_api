@@ -50,12 +50,12 @@ def main():
     for x in range(len(r)):
         sport_id = int(r[x]["rows"][0]["sportId"])
         try:
-            print(f"\n---{SPORTIDS[sport_id]}---")
+            print(f"\n---{SPORTIDS[sport_id]}--------------------")
         except ValueError:
             print(f"Tunnistamaton laji... sport_id: {sport_id}")
         close_time = datetime.datetime.fromtimestamp(int(r[x]["closeTime"] / 1000))
-        print(f"Closes at {close_time:%Y-%m-%d %H:%M:%S}")
-        print("---games---")
+        print(f"| Closes at {close_time:%Y-%m-%d %H:%M:%S} |")
+        print("-------------------------games---")
         for y in range(len(r[x]["rows"])):
             print(r[x]["rows"][y]["name"])
 
